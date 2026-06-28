@@ -129,6 +129,12 @@ arm-linux-gnueabihf-gcc -O2 -flto -DFEATURE_SOUND \
 - **id Software** — the original Doom
 - **Denon DJ** — for the PRIME GO hardware
 
+## Disclaimer
+
+This project is **not affiliated with, endorsed by, or sponsored by** id Software, Bethesda Softworks, Denon DJ, or inMusic Brands. "Doom" is a registered trademark of id Software LLC. "Denon DJ" and "PRIME GO" are trademarks of inMusic Brands Inc. All trademarks and registered trademarks are property of their respective owners.
+
+This project is provided for educational and personal use only. You must own a legitimate copy of Doom to obtain the required IWAD file.
+
 ## License
 
 GNU General Public License v2.0 — see [LICENSE](LICENSE).
