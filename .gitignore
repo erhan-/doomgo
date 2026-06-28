@@ -1,0 +1,25 @@
+# Binaries
+doomprimego
+*.so
+
+# Build artifacts
+build/
+*.o
+*.tar.gz
+
+# Docker
+.docker/
+
+# WAD file (must be obtained separately)
+*.wad
+*.WAD
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

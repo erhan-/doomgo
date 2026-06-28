@@ -1,0 +1,55 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build with Docker
+        run: |
+          docker build -t doomgo-builder .
+          docker run --rm doomgo-builder cat /doomprimego > doomprimego
+          strip doomprimego 2>/dev/null || true
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: doomprimego
+          path: doomprimego
+
+      - name: Create Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: doomprimego
+          name: DoomGo ${{ github.ref_name }}
+          body: |
+            ## DoomGo ${{ github.ref_name }}
+
+            ### Prerequisites
+            Follow [icedream/denon-prime4](https://github.com/icedream/denon-prime4) to get SSH and root access.
+
+            ### Installation
+            Copy `doomprimego` and a `doom.wad` (Doom 1.9 IWAD) to `/data/` on your PRIME GO,
+            then set up the SoundSwitch service as described in the [README](https://github.com/${{ github.repository }}).
+
+            ### Files
+            - `doomprimego` — ARM32 binary for Denon DJ PRIME GO (JP11)
+            - A `doom.wad` file is **not included** — obtain it from your legally purchased copy of Doom
