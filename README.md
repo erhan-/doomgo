@@ -1,15 +1,15 @@
-# DoomGo — Doom on Denon DJ PRIME GO
+# Doom for PRIME
 
-Port of [doomgeneric](https://github.com/ozkl/doomgeneric) to the **Denon DJ PRIME GO** (JP11). Runs directly on the framebuffer with full MIDI DJ controller support and ALSA audio.
+Port of [doomgeneric](https://github.com/ozkl/doomgeneric) to **PRIME standalone devices** (Prime 4, PRIME GO, etc.). Runs directly on the framebuffer with full MIDI DJ controller support and ALSA audio.
 
 ![Demo](https://img.shields.io/badge/status-stable-green)
 
 ## Requirements
 
-- **Denon DJ PRIME GO** with SSH access and root shell
+- A **PRIME device** (Prime 4, PRIME GO, etc.) with SSH access and root shell
 - Follow [icedream/denon-prime4](https://github.com/icedream/denon-prime4) instructions to enable SSH and gain root access
 - A USB Ethernet adapter or network connection to the device
-- A **Doom 1.9 IWAD** file (`doom.wad`/`DOOM.WAD`) — obtain from your legally purchased copy of Doom
+- A **Doom 1.9 IWAD** file (`doom.wad`) — obtain from your legally purchased copy of Doom
 
 ## Quick Start
 
@@ -101,7 +101,7 @@ Tap the **SoundSwitch** (lighting) icon in Engine DJ's main toolbar (or use Prim
 
 ## Display
 
-The PRIME GO screen is 800×1280 (portrait). Doom renders at 640×400, rotated 90° counter-clockwise and scaled 2× to fill the display.
+The PRIME GO screen is 800×1280 (portrait). Doom renders at 640×400, rotated 90° counter-clockwise and scaled 2× to fill the display. Prime 4 uses a different resolution — adjust `DOOMGENERIC_RESX`/`DOOMGENERIC_RESY` and the rendering code accordingly.
 
 ## Audio
 
@@ -131,7 +131,7 @@ arm-linux-gnueabihf-gcc -O2 -flto -DFEATURE_SOUND \
 
 ## Disclaimer
 
-This project is **not affiliated with, endorsed by, or sponsored by** id Software, Bethesda Softworks, Denon DJ, or inMusic Brands. "Doom" is a registered trademark of id Software LLC. "Denon DJ" and "PRIME GO" are trademarks of inMusic Brands Inc. All trademarks and registered trademarks are property of their respective owners.
+This project is **not affiliated with, endorsed by, or sponsored by** id Software, Bethesda Softworks, or inMusic Brands. "Doom" is a registered trademark of id Software LLC. All trademarks and registered trademarks are property of their respective owners.
 
 This project is provided for educational and personal use only. You must own a legitimate copy of Doom to obtain the required IWAD file.
 
